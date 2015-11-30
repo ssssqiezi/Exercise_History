@@ -55,7 +55,10 @@ public class FlowLayout extends ViewGroup
             //measureChild(view, MeasureSpec.makeMeasureSpec(view.getMeasuredWidth(), view.getLayoutParams().width), MeasureSpec.makeMeasureSpec(view.getMeasuredHeight(), view.getLayoutParams().height));
 
             //the second right way
-            measureChild(view,MeasureSpec.makeMeasureSpec(view.getMeasuredWidth(), MeasureSpec.UNSPECIFIED), MeasureSpec.makeMeasureSpec(view.getMeasuredHeight(), MeasureSpec.UNSPECIFIED));
+            //measureChild(view,MeasureSpec.makeMeasureSpec(view.getMeasuredWidth(), MeasureSpec.UNSPECIFIED), MeasureSpec.makeMeasureSpec(view.getMeasuredHeight(), MeasureSpec.UNSPECIFIED));
+
+            //the third right way
+            measureChild(view,widthMeasureSpec, heightMeasureSpec);
 
             //WRONG: it seems wrong, becz the parent spec is wrong
             //measureChild(view,MeasureSpec.makeMeasureSpec(view.getMeasuredWidth(), MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(view.getMeasuredHeight(), MeasureSpec.EXACTLY));
@@ -80,11 +83,12 @@ public class FlowLayout extends ViewGroup
         }
 
         setMeasuredDimension(modeWidth==MeasureSpec.EXACTLY?sizeWidth:maxWidth, modeWidth==MeasureSpec.EXACTLY?sizeHeight:height);
+
+
+
+
+
     }
-
-
-
-
 
 
     @Override
